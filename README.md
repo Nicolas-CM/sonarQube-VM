@@ -67,12 +67,18 @@ Se configuró un nuevo proyecto en el portal de SonarQube para analizar el repos
 ![Portal de SonarQube](images/sonar-portal.png)
 
 ### Implementación del Pipeline
-Se configuró un workflow de GitHub Actions para automatizar el análisis:
+Se configuró un workflow de GitHub Actions para automatizar el análisis y la seguridad:
 
-1. Se creó el archivo de workflow en el repositorio
+1. Se creó el archivo de workflow en el repositorio que incluye:
+   - Análisis de código con SonarQube
+   - Escaneo de vulnerabilidades con Trivy
 2. Se configuraron los secretos necesarios en GitHub:
    - SONAR_TOKEN: Token de autenticación
    - SONAR_HOST_URL: URL del servidor SonarQube
+
+El análisis de seguridad con Trivy proporciona información sobre vulnerabilidades:
+
+![Resultados de Trivy](images/trivy-results-code-scanning.png)
 
 ![Configuración de GitHub Actions](images/step-actions-sonar.png)
 
